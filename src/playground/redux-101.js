@@ -1,7 +1,15 @@
-import { createStore } from "redux";
+import { createStore } from 'redux';
 
-const store = createStore((state = { count: 1000 }) => {
-  return state;
+const store = createStore((state = { count: 0 }, action) => {
+  console.log('running');
+  if (action.type === 'INCREMENT') {
+    return {
+      count: state.count + 1
+    };
+  } else return state;
 });
 console.log(store.getState());
-console.log("test");
+store.dispatch({
+  type: 'INCREMENT'
+});
+console.log(store.getState());

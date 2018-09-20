@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
 const store = createStore((state = { count: 10 }, action) => {
-  console.log('running');
+  console.log('running running');
   switch (action.type) {
     case 'INCREMENT':
       return { count: state.count + 1 };

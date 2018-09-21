@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 
-const store = createStore((state = { count: 10 }, action) => {
+const store = createStore((state = { count: 100 }, action) => {
   switch (action.type) {
     case 'INCREMENT':
       const incrementBy =

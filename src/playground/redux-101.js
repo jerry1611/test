@@ -12,6 +12,8 @@ const store = createStore((state = { count: 100 }, action) => {
       return { count: state.count - decrementBy };
     case 'RESET':
       return { count: 0 };
+    case 'SET':
+      return { count: 101 };
     default:
       return state;
   }
@@ -41,4 +43,8 @@ store.dispatch({
 
 store.dispatch({
   type: 'RESET'
+});
+
+store.dispatch({
+  type: 'SET'
 });

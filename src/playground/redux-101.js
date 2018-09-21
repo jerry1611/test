@@ -1,10 +1,11 @@
 import { createStore } from 'redux';
 
 const store = createStore((state = { count: 0 }, action) => {
-  console.log('running running');
   switch (action.type) {
     case 'INCREMENT':
-      return { count: state.count + 1 };
+      const incrementBy =
+        typeof action.incrementBy === 'number' ? action.incrementBy : 1;
+      return { count: state.count + incrementBy };
     case 'DECREMENT':
       return { count: state.count - 1 };
     case 'RESET':
@@ -13,16 +14,24 @@ const store = createStore((state = { count: 0 }, action) => {
       return state;
   }
 });
-console.log(store.getState());
+
+const unsubscribe = store.subscribe(() => {
+  console.log(store.getState());
+});
+
+store.dispatch({
+  type: 'INCREMENT',
+  incrementBy: 5
+});
+
 store.dispatch({
   type: 'INCREMENT'
 });
-console.log(store.getState());
+
 store.dispatch({
   type: 'DECREMENT'
 });
-console.log(store.getState());
+
 store.dispatch({
   type: 'RESET'
 });
-console.log(store.getState());

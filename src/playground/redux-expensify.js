@@ -31,10 +31,21 @@ const editExpense = (id, updates) => {
   };
 };
 
-const setTextFilter = ({ text }) => {
+const setTextFilter = ({ text = '' } = {}) => {
   return {
     type: 'SET_FILTER',
     text
+  };
+};
+
+const sortByAmount = ({} = {}) => {
+  return {
+    type: 'SORT_BY_AMOUNT'
+  };
+};
+const sortByDate = ({} = {}) => {
+  return {
+    type: 'SORT_BY_DATE'
   };
 };
 
@@ -89,10 +100,13 @@ const expenseOne = store.dispatch(
 const expenseTwo = store.dispatch(
   addExpense({ description: 'Coffee', amount: 30 })
 );
+
 store.dispatch(removeExpense({ id: expenseOne.expense.id }));
 store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }));
 store.dispatch(setTextFilter({ text: 'random' }));
-store.dispatch(setTextFilter({ text: '' }));
+store.dispatch(setTextFilter());
+store.dispatch(sortByAmount());
+store.dispatch(sortByDate());
 
 const demoState = {
   expenses: [

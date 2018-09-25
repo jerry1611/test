@@ -8,7 +8,6 @@ const filterdefaultState = {
 const filterReducer = (state = filterdefaultState, action) => {
   switch (action.type) {
     case 'SET_FILTER':
-      console.log(action.text);
       return { ...state, text: action.text };
     case 'SORT_BY_AMOUNT':
       return { ...state, sortBy: 'amount' };

@@ -88,6 +88,7 @@ const filterdefaultState = {
   startDate: undefined,
   endDate: undefined
 };
+
 const filterReducer = (state = filterdefaultState, action) => {
   switch (action.type) {
     case 'SET_FILTER':

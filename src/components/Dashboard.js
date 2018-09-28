@@ -1,7 +1,12 @@
 import React from 'react';
+import ExpenseList from './ExpenseList';
 
 const Dashboard = () => {
-  return <p>This is a Router Path</p>;
+  return (
+    <div>
+      <ExpenseList />
+    </div>
+  );
 };
 
 export default Dashboard;

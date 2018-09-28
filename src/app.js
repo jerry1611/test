@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import AppRouter from './router/AppRouter';
@@ -16,4 +17,10 @@ store.dispatch(setTextFilter('gas'));
 const state = store.getState();
 const data = getVisibleExpenses(state.expenses, state.filters);
 console.log(data);
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
+ReactDOM.render(jsx, document.getElementById('app'));
